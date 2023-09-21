@@ -9,7 +9,7 @@ const MealsBtn = ({ meal }) => {
   const handleShowDetails = () => {
   const user = true;
   if(user){
-    navigate(`/product/${strCategory}`);
+    navigate(`/category/${strCategory}`);
   }else{
     navigate("/")
   }

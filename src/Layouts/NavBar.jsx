@@ -24,17 +24,17 @@ const NavBar = () => {
         >
           <Link to="/">
             <li className="hover:bg-slate-300 rounded-xl">
-              <a>Homepage</a>
+              Homepage
             </li>
           </Link>
           <Link to="/products">
             <li className="hover:bg-slate-300 rounded-xl">
-              <a>Products</a>
+             Products
             </li>
           </Link>
           <Link to="/dashboard">
             <li className="hover:bg-slate-300 rounded-xl">
-              <a>Dashboard</a>
+              Dashboard
             </li>
           </Link>
         </ul>
