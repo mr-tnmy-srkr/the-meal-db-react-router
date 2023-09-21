@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 // import mealDescription from "/mealDescription"
 
 const ShowMealDetails = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   // const {singleMealInfo} = useLoaderData();
   const { id } = useParams();
   // console.log(singleMealInfo);
@@ -13,28 +13,32 @@ const ShowMealDetails = () => {
       .then((data) => setData(data.meals));
   }, [id]);
 
-console.log(data);
+
+  const navigate = useNavigate()
+const handleGoBack = ()=>{
+    navigate(-1)
+}
+// console.log(data);
 
   return (
     <div>
-      {/* <h1>Single Meal</h1> */}
       {
         data &&
-        data?.map((info) => {
-          <div className="card card-side bg-base-100 shadow-xl">
-            <figure>
-              <img src={info.strMealThumb} alt="meal" />
+        data?.map((info) => 
+          <div key={info.idMeal} className="card card-side bg-base-100 shadow-xl flex gap-6 py-10 px-20">
+            <figure className="w-[30%] border-2">
+              <img src={info?.strMealThumb} alt="meal" />
             </figure>
-            <div className="card-body">
-              <h2 className="card-title">{info.strMeal}</h2>
-              <p>{info.strInstructions}</p>
+            <div className="card-body w-[70%] border-2">
+              <h2 className="card-title">{info?.strMeal}</h2>
+              <p>{info?.strInstructions}</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">Watch</button>
+                <button onClick={handleGoBack} className="btn btn-primary">Go back</button>
               </div>
             </div>
-          </div>;
-        })
-        }
+          </div>
+        )
+      }
     </div>
   );
 };

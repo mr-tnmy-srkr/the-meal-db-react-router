@@ -40,7 +40,7 @@ const NavBar = () => {
         </ul>
       </div>
       <div className={"text-3xl font-semibold "}>
-        <h1>The Meal DB</h1>
+       <Link to="/"><h1>The Meal DB</h1></Link>
       </div>
     </nav>
   );
