@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 // import mealDescription from "/mealDescription"
 
 const ShowMealDetails = () => {
@@ -18,6 +18,10 @@ const ShowMealDetails = () => {
 const handleGoBack = ()=>{
     navigate(-1)
 }
+
+const handleGoBackToHome =()=>{
+navigate("/")
+}
 // console.log(data);
 
   return (
@@ -34,6 +38,7 @@ const handleGoBack = ()=>{
               <p>{info?.strInstructions}</p>
               <div className="card-actions justify-end">
                 <button onClick={handleGoBack} className="btn btn-primary">Go back</button>
+                <button onClick={handleGoBackToHome} className="btn btn-primary">Go to Home</button>
               </div>
             </div>
           </div>
