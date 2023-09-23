@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigation } from "react-router-dom";
+import { Outlet, useLoaderData, useNavigation } from "react-router-dom";
 import MealsBtn from "./MealsBtn";
 import PropagateLoader from "react-spinners/PropagateLoader";
 
@@ -24,6 +24,7 @@ const Meals = () => {
           </div>
         ))
       )}
+      <Outlet></Outlet>
     </div>
   );
 };

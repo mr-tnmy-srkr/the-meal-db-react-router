@@ -22,13 +22,16 @@ const router = createBrowserRouter([
           path: "/products",
           element: <Meals></Meals>,
           loader: () => fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`),
+          children:[
+            {
+              path: "/products/product/:strCategory",
+              element: <Meal></Meal>,
+              loader: ({params}) => fetch(`https://themealdb.com/api/json/v1/1/filter.php?c=${params.strCategory}`),
+            },
+          ]
         },
-        {
-          path: "/category/:strCategory",
-          element: <Meal></Meal>,
-          loader: ({params}) => fetch(`https://themealdb.com/api/json/v1/1/filter.php?c=${params.strCategory}`),
-        },
-        {
+       
+       {
           path: "/product/:id",
           element: <ShowMealDetails></ShowMealDetails>,
           // loader: ({params})=>fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.id}`)
